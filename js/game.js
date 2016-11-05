@@ -16,7 +16,6 @@ var game = function() {
 
 	this.start = function() {
 		board.init(true);
-		// btnStart();
 		buttonStyles(true);
 		gameInterval = setInterval(function() {
 			board.update();
@@ -26,7 +25,6 @@ var game = function() {
 	this.stop = function() {
 		clearInterval(gameInterval);
 		board.delete();
-		// btrnStop();
 		buttonStyles(false);
 	};
 };
