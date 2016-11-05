@@ -2,14 +2,10 @@ var game = function() {
 	var board = new gameBoard();
 	var gameInterval;
 
-	function btnStart() {
-		document.getElementById('start').className += ' disabled';
-		document.getElementById('start').disabled = true;
-	}
-
-	function btrnStop() {
-		document.getElementById('start').className = 'default';
-		document.getElementById('start').disabled = false;
+	function buttonStyles(disabled) {
+		var buttonClassName = (disabled) ? 'default disabled' : 'default';
+		document.getElementById('start').className = buttonClassName;
+		document.getElementById('start').disabled = disabled;
 	}
 
 	this.init = function() {
@@ -20,7 +16,8 @@ var game = function() {
 
 	this.start = function() {
 		board.init(true);
-		btnStart();
+		// btnStart();
+		buttonStyles(true);
 		gameInterval = setInterval(function() {
 			board.update();
 		}, 200);
@@ -29,7 +26,8 @@ var game = function() {
 	this.stop = function() {
 		clearInterval(gameInterval);
 		board.delete();
-		btrnStop();
+		// btrnStop();
+		buttonStyles(false);
 	};
 };
 
